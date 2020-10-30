@@ -1,4 +1,7 @@
+// 'use strict'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { userSignIn } from '../../Redux/Auth/AuthAction';
 
 import Login from '../Login/Login'
 import { getTokenFromResponse } from '../Login/SpotifyLogin'
@@ -7,7 +10,8 @@ var Spotify = require('spotify-web-api-js');
 
 
 export default function MainPage() {
-
+    const dispatch = useDispatch()
+    const { isAuthenticated, currentUser } = useSelector(state => state.auth) 
     const [token, setToken] = useState(null)
 
     var spotify = new Spotify();
@@ -23,16 +27,16 @@ export default function MainPage() {
            spotify.setAccessToken(_token);
            
            spotify.getMe().then(user =>{
-               console.log('user' , user);
+               dispatch(userSignIn(user));
            });
        }
-   },[token, spotify])
+   },[token, dispatch, spotify])
 
-
+   console.log(currentUser);
     return (
         <div>
            {
-               !token? <Login />: <PlayerPage />
+               !isAuthenticated? <Login />: <PlayerPage spotify={spotify}/>
            }
         </div>
     )

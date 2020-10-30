@@ -3,13 +3,8 @@ import { USER_SIGN_IN, USER_SIGN_OUT} from './AuthType'
 
 
 const initialState ={
-    isAuthenticated: true,
-    currentUser: {
-        photoURL: '',
-        displayName: 'Mohamed Ahmed',
-        uid: 11111,
-        email: 'a7a@a7a.com'
-    }
+    isAuthenticated: false,
+    currentUser: null
 }
 
 const authReducer = (state =initialState, {type, payload})=>{
@@ -19,10 +14,10 @@ const authReducer = (state =initialState, {type, payload})=>{
                 ...state,
                 isAuthenticated: true,
                 currentUser: {
-                    photoURL :payload.photoURL,
-                    uid: payload.uid,
-                    displayName: payload.displayName,
-                    email: payload.email,
+                    // photoURL :payload.photoURL,
+                    id: payload.id,
+                    displayName: payload.display_name,
+                    // email: payload.email,
                 },
             }
         case USER_SIGN_OUT:
