@@ -20,7 +20,7 @@
     outline-width: 0;
     text-decoration: none;
 }
-.login_form button:hover{
+.login_form a:hover{
 
     background-color: #25ce58;
 }
