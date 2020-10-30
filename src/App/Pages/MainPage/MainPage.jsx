@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { userSignIn } from '../../Redux/Auth/AuthAction';
-
+import { setPlayList } from '../../Redux/Play/PlayReducer'
 import Login from '../Login/Login'
 import { getTokenFromResponse } from '../Login/SpotifyLogin'
 import PlayerPage from '../PlayerPage/PlayerPage';
@@ -29,6 +29,9 @@ export default function MainPage() {
            spotify.getMe().then(user =>{
                dispatch(userSignIn(user));
            });
+           spotify.getUserPlaylists().then(playlist =>{
+               dispatch(setPlayList(playlist))
+           })
        }
    },[token, dispatch, spotify])
 

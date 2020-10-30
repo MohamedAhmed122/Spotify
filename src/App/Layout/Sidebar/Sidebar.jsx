@@ -5,8 +5,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 
 import './StyleSidebar.css';
+import { useSelector } from 'react-redux';
 
 export default function Sidebar() {
+    const { playList } = useSelector(state => state.play)
     return (
         <div className='main_sidebar'>
            <img
@@ -20,9 +22,12 @@ export default function Sidebar() {
             <br />
             <strong>PLAYLIST</strong>
             <hr />
-            <SidebarOption title='Home' />
-            <SidebarOption  title='Search' />
-            <SidebarOption title='Your Library' />
+            {
+                playList?.items?.map(playList =>(
+                    <SidebarOption title={playList.name} />
+                ))
+            }
+           
         </div>
     )
 }

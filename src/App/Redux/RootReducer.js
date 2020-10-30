@@ -3,9 +3,11 @@ import {
 } from 'redux';
 
 import authReducer from './Auth/AuthReducer'
+import PlayReducer from './Play/PlayReducer';
 
 const rootReducer = combineReducers({
-      auth: authReducer
+      auth: authReducer,
+      play: PlayReducer,
 })
 // export default persistReducer(persistConfig, rootReducer);
 
