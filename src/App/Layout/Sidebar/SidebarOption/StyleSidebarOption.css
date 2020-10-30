@@ -1,0 +1,20 @@
+.SidebarOption{
+    color: rgb(151, 151, 151);
+    height: 40px;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 200;
+}
+.SidebarOption:hover{
+    color: white;
+}
+.SidebarOption .sidebar_icon{
+    padding: 0px 15px ;
+}
+.SidebarOption .title{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+}

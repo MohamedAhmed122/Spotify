@@ -15,3 +15,13 @@
     margin-right: auto;
     padding: 10px;
 }
+.main_sidebar strong{
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 12px;
+}
+.main_sidebar hr{
+   width: 90%;
+   border: 1px solid #282828;
+   margin: 10px auto;
+}
