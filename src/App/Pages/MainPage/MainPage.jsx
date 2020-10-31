@@ -1,6 +1,7 @@
 // 'use strict'
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../Components/Loader/Loader';
 import { userSignIn } from '../../Redux/Auth/AuthAction';
 import { getDiscover } from '../../Redux/Discover/DiscoverReducer';
 import { setPlayList } from '../../Redux/Play/PlayReducer'
@@ -13,6 +14,7 @@ var Spotify = require('spotify-web-api-js');
 export default function MainPage() {
     const dispatch = useDispatch()
     const { isAuthenticated, currentUser } = useSelector(state => state.auth) 
+    
 
     const [token, setToken] = useState(null)
 
@@ -36,20 +38,44 @@ export default function MainPage() {
                dispatch(setPlayList(playlist))
            })
          
-            spotify.getPlaylist("32T36Dd1BMDXSBY4XWcRW2").then(songs =>{
-                dispatch(getDiscover(songs))
+            spotify.getPlaylist("32T36Dd1BMDXSBY4XWcRW2").then(async songs =>{
+                try {
+                    await  dispatch(getDiscover(songs))
+                } catch (error) {
+                    console.log(error);
+                }
+               
             })
            
           //32T36Dd1BMDXSBY4XWcRW2  37i9dQZEVXcJZyENOWUFo7
        }
    },[token, dispatch, spotify])
-
+   const { discovers } = useSelector(state => state.discover)
+//    console.log(discovers);
    console.log(currentUser);
     return (
         <div>
            {
-               !isAuthenticated? <Login />: <PlayerPage spotify={spotify}/>
+               !isAuthenticated? <Login />: 
+               <Fragment>
+              {  !discovers? <Loader /> :<PlayerPage spotify={spotify}/>}
+               </Fragment>
+             
            }
         </div>
     )
 }
+
+
+
+//     const { currentUser } = useSelector(state => state.auth)
+//   console.log(discovers);
+//    const delay = (time) => {
+//     return new Promise((resolve) => setTimeout(resolve, time));
+// };
+// const fetchData = () => {
+//     return delay(4000).then(() => {
+//       return <Loader />
+//     });
+//   };
+//   fetchData();

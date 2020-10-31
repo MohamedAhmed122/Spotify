@@ -5,7 +5,7 @@ export const getDiscover = songs =>({
     payload: songs
 })
 const initialState ={
-    discovers: []
+    discovers: null
 } 
 
 const DiscoverReducer = (state = initialState, {type, payload})=>{
