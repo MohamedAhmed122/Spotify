@@ -1,0 +1,22 @@
+.body_main{
+    margin: 20px -30px;
+}
+.body_icon{
+    display: flex;
+    align-items: center;
+}
+.body_icon .MuiSvgIcon-root{
+    margin-right: 20px;
+    color: white;
+}
+.body_icon .play_icon{
+    font-size: 88px !important;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #1bd954;
+}
+.body_icon .play_icon:hover{
+    transition: 250ms transform ease-in-out ;
+    transform: scale(1.1);
+}

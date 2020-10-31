@@ -20,3 +20,4 @@ const DiscoverReducer = (state = initialState, {type, payload})=>{
 
 }
 export default DiscoverReducer;
+

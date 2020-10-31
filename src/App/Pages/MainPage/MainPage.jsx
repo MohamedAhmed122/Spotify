@@ -56,26 +56,13 @@ export default function MainPage() {
     return (
         <div>
            {
-               !isAuthenticated? <Login />: 
-               <Fragment>
-              {  !discovers? <Loader /> :<PlayerPage spotify={spotify}/>}
-               </Fragment>
+               !isAuthenticated? <Login />: <PlayerPage />
+            //    <Fragment>
+            //   {  !discovers? <Loader /> :<PlayerPage spotify={spotify}/>}
+            //    </Fragment>
              
            }
         </div>
     )
 }
 
-
-
-//     const { currentUser } = useSelector(state => state.auth)
-//   console.log(discovers);
-//    const delay = (time) => {
-//     return new Promise((resolve) => setTimeout(resolve, time));
-// };
-// const fetchData = () => {
-//     return delay(4000).then(() => {
-//       return <Loader />
-//     });
-//   };
-//   fetchData();
