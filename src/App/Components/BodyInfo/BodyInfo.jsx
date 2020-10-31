@@ -3,14 +3,15 @@ import { useSelector } from 'react-redux'
 import './StyleBodyInfo.css'
 
 export default function BodyInfo() {
+    const { discovers } = useSelector(state => state.discover)
     const { currentUser } = useSelector(state => state.auth)
     return (
         <div className='body_info'>
-            <img src={currentUser?.photoURL || img} alt='' />
+            <img src={discovers?.images[0].url|| currentUser?.photoURL || img} alt='' />
             <div className='info_text'>
                  <strong>Discover Weekly</strong>
                  <h2>Playlist</h2>
-                 <p>..............</p>
+                 <p>{discovers?.description}</p>
             </div>
         </div>
     )

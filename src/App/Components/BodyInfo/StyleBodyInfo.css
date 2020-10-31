@@ -20,6 +20,7 @@
     font-weight: 300;
 }
 .info_text p{
+    margin-top: 20px;
     font-size: 14px;
     margin-bottom: 30px;
 }

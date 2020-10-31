@@ -4,10 +4,12 @@ import {
 
 import authReducer from './Auth/AuthReducer'
 import PlayReducer from './Play/PlayReducer';
+import DiscoverReducer from './Discover/DiscoverReducer'
 
 const rootReducer = combineReducers({
       auth: authReducer,
       play: PlayReducer,
+      discover: DiscoverReducer
 })
 // export default persistReducer(persistConfig, rootReducer);
 

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { userSignIn } from '../../Redux/Auth/AuthAction';
+import { getDiscover } from '../../Redux/Discover/DiscoverReducer';
 import { setPlayList } from '../../Redux/Play/PlayReducer'
 import Login from '../Login/Login'
 import { getTokenFromResponse } from '../Login/SpotifyLogin'
@@ -12,9 +13,11 @@ var Spotify = require('spotify-web-api-js');
 export default function MainPage() {
     const dispatch = useDispatch()
     const { isAuthenticated, currentUser } = useSelector(state => state.auth) 
+
     const [token, setToken] = useState(null)
 
     var spotify = new Spotify();
+    
 
    useEffect(()=>{
        const hash = getTokenFromResponse();
@@ -32,6 +35,12 @@ export default function MainPage() {
            spotify.getUserPlaylists().then(playlist =>{
                dispatch(setPlayList(playlist))
            })
+         
+            spotify.getPlaylist("32T36Dd1BMDXSBY4XWcRW2").then(songs =>{
+                dispatch(getDiscover(songs))
+            })
+           
+          //32T36Dd1BMDXSBY4XWcRW2  37i9dQZEVXcJZyENOWUFo7
        }
    },[token, dispatch, spotify])
 
