@@ -10,6 +10,12 @@
 .SidebarOption:hover{
     color: white;
 }
+.SidebarOption p{
+    color: gray;
+}
+.SidebarOption p:hover{
+    color: white;
+}
 .SidebarOption .sidebar_icon{
     padding: 0px 15px ;
 }
