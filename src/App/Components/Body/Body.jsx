@@ -1,9 +1,10 @@
 import React from 'react'
 import './StyleBody.css'
-export default function Body() {
+import Header from '../../Layout/Header/Header'
+export default function Body({spotify}) {
     return (
         <div className='body'>
-            <h1>Hello From the Body</h1>
+            <Header spotify={spotify}/>
         </div>
     )
 }

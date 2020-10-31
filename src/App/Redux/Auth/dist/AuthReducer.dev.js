@@ -31,7 +31,8 @@ var authReducer = function authReducer() {
         isAuthenticated: true,
         currentUser: {
           id: payload.id,
-          displayName: payload.display_name
+          displayName: payload.display_name,
+          photoURL: payload.images[0].url
         }
       });
 
