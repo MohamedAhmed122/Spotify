@@ -5,4 +5,49 @@
     position: fixed;
     background-color: #282828;
     padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.footer_right{
+    flex: 0.3;
+    display: flex;
+    align-items: center;
+}
+.footer_right img{
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+    margin: 20px;
+}
+.footer_info ,p,h3 {
+     color: white;
+     padding: 3px;
+     margin-right: 26px;
+    }
+.footer_middle{
+    flex: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    max-width: 350px;
+}
+.footer .MuiSvgIcon-root{
+    color: white;
+}
+.footer_left{
+    flex: 0.3;
+    margin-right:50px ;
+}
+
+.footer_middle .green{
+    color: #1bd954;
+}
+.footer_middle .green:hover{
+    color: #279247;
+}
+.footer_left .MuiSlider-root{
+    color: #1bd954;
 }

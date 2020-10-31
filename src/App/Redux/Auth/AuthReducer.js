@@ -14,10 +14,8 @@ const authReducer = (state =initialState, {type, payload})=>{
                 ...state,
                 isAuthenticated: true,
                 currentUser: {
-                    // photoURL :payload.photoURL,
                     id: payload.id,
                     displayName: payload.display_name,
-                    // email: payload.email,
                 },
             }
         case USER_SIGN_OUT:

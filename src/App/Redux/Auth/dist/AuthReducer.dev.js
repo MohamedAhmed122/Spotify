@@ -30,10 +30,8 @@ var authReducer = function authReducer() {
       return _objectSpread({}, state, {
         isAuthenticated: true,
         currentUser: {
-          // photoURL :payload.photoURL,
           id: payload.id,
-          displayName: payload.display_name // email: payload.email,
-
+          displayName: payload.display_name
         }
       });
 
